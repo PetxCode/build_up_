@@ -1,8 +1,7 @@
-import { dbConfig } from "@/app/utils/dbconfig";
-import myUserModel from "@/app/utils/model/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import myProductModel from "@/app/utils/model/productModel";
+import { dbConfig } from "@/utils/dbconfig";
+import myProductModel from "@/utils/model/productModel";
 
 export const GET = async () => {
   try {
@@ -29,10 +28,7 @@ export const POST = async (req: NextRequest) => {
 
     const users = await myProductModel.create({
       title,
-      price,
       image,
-      desc,
-      qty,
     });
 
     return NextResponse.json({

@@ -14,10 +14,7 @@ export interface iUserData extends iUser, Document {}
 
 export interface iProduct {
   title: string;
-  price: number;
-  desc: string;
   image: string;
-  qty: number;
 }
 
 export interface iProductData extends iProduct, Document {}
