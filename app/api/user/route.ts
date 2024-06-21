@@ -1,7 +1,7 @@
-import { dbConfig } from "@/app/utils/dbconfig";
-import myUserModel from "@/app/utils/model/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import { dbConfig } from "@/utils/dbconfig";
+import myUserModel from "@/utils/model/userModel";
 
 export const GET = async () => {
   try {
