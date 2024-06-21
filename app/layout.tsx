@@ -18,7 +18,9 @@ export default async function RootLayout({
   await dbConfig();
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="text-blue-950">{children}</div>
+      </body>
     </html>
   );
 }

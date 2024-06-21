@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcrypt";
 import { dbConfig } from "@/utils/dbconfig";
 import myProductModel from "@/utils/model/productModel";
 
