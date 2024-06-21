@@ -1,14 +1,18 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
 
 const page = () => {
   const mainAction = async (formData: FormData) => {
-    "use server";
     const email = formData.get("email");
     const password = formData.get("password");
 
     console.log(email, password);
+
+    signIn("credentials", { email, password });
   };
 
   return (
