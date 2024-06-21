@@ -1,8 +1,8 @@
-import { dbConfig } from "@/app/utils/dbconfig";
+import { dbConfig } from "@/utils/dbconfig";
+import { iProduct } from "@/utils/interface";
+import myProductModel from "@/utils/model/productModel";
+import myUserModel from "@/utils/model/userModel";
 import { NextRequest, NextResponse } from "next/server";
-import myProductModel from "@/app/utils/model/productModel";
-import myUserModel from "@/app/utils/model/userModel";
-import { iProduct } from "@/app/utils/interface";
 
 export const GET = async () => {
   try {
@@ -25,17 +25,14 @@ export const GET = async () => {
 export const POST = async (req: NextRequest, params: any) => {
   try {
     await dbConfig();
-    const { title, price, image, desc, qty }: iProduct = await req.json();
+    const { title, image }: iProduct = await req.json();
 
     const { userID } = await params.params;
     const user = await myUserModel.findById(userID);
     if (user.role === "admin") {
       const users = await myProductModel.create({
         title,
-        price,
         image,
-        desc,
-        qty,
       });
 
       return NextResponse.json({

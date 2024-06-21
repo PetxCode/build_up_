@@ -1,8 +1,8 @@
-import { dbConfig } from "@/app/utils/dbconfig";
+import { dbConfig } from "@/utils/dbconfig";
+import { iUser } from "@/utils/interface";
+import myProductModel from "@/utils/model/productModel";
+import myUserModel from "@/utils/model/userModel";
 import { NextRequest, NextResponse } from "next/server";
-import myProductModel from "@/app/utils/model/productModel";
-import myUserModel from "@/app/utils/model/userModel";
-import { iProduct, iUser } from "@/app/utils/interface";
 
 export const GET = async () => {
   try {

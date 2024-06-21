@@ -24,7 +24,7 @@ export const GET = async () => {
 export const POST = async (req: NextRequest) => {
   try {
     await dbConfig();
-    const { title, price, image, desc, qty } = await req.json();
+    const { title, image } = await req.json();
 
     const users = await myProductModel.create({
       title,
