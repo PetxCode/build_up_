@@ -1,13 +1,15 @@
-// "use client";
+"use client";
 
 import { APP_URL } from "@/utils/constanst";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
 
 const page = () => {
+  const router = useRouter();
   const mainAction = async (formData: FormData) => {
-    "use server";
+    // "use server";
     const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
@@ -21,6 +23,8 @@ const page = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify({ name, email, password }),
+    }).then(() => {
+      router.push("/signin");
     });
   };
 
