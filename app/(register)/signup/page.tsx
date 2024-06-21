@@ -14,9 +14,9 @@ const page = () => {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    console.log(name, email, password);
-    const URL: string = `${APP_URL}/api/user`;
+    const URL: string = `/api/user`;
 
+    console.log(name, email, password, { APP_URL });
     await fetch(URL, {
       method: "POST",
       headers: {
