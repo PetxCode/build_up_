@@ -6,18 +6,9 @@ const productModel = new Schema<iProductData>(
     title: {
       type: String,
     },
-    desc: {
-      type: String,
-    },
+
     image: {
       type: String,
-    },
-
-    price: {
-      type: Number,
-    },
-    qty: {
-      type: Number,
     },
   },
   { timestamps: true }
