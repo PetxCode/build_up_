@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import { dbConfig } from "@/utils/dbconfig";
 import MainProvider from "./components/MainProvider";

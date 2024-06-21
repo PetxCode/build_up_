@@ -5,6 +5,10 @@ import Image from "next/image";
 import React from "react";
 import { options } from "./api/auth/[...nextauth]/options";
 import AutoPlay from "./components/AuthScroll";
+import { Inter, Poppins, Noto_Serif } from "next/font/google";
+
+const pop = Poppins({ subsets: ["latin"], weight: "300", style: "normal" });
+const noto = Noto_Serif({ subsets: ["latin"], weight: "300", style: "normal" });
 
 const page = async () => {
   const session = await getServerSession(options);
@@ -48,6 +52,16 @@ const page = async () => {
       <br />
       <div className="w-[98%]">
         <AutoPlay />
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <div className="w-[98%]">
+        <p className={pop.className}>This is the Best Font</p>
+      </div>
+      <div className="w-[98%]">
+        <p className={noto.className}>This is the Best Font</p>
       </div>
     </div>
   );
