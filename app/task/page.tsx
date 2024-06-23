@@ -1,18 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import TaskDisplace from "./TaskDisplace";
-import { useFormState } from "react-dom";
 import { createTask } from "./action";
 
 const page = () => {
-  // const [] = useFormState(createTask(), {});
-
   const mainAction = async (formData: FormData) => {
     "use server";
-
     const title = formData.get("title") as string;
-
     createTask(title);
   };
+
   return (
     <div className="border rounded-md min-h-[70vh] m-4 p-4">
       <p>Enter Task</p>
