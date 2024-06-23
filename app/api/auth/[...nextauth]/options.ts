@@ -17,7 +17,7 @@ export const options: NextAuthOptions = {
       },
       async authorize(credentials) {
         const res = await fetch(
-          `https://build-up-six.vercel.app/api/user/signin`,
+          `https://build-f7unp0ag5-petxcodes-projects.vercel.app/api/user/signin`,
           {
             method: "POST",
             body: JSON.stringify(credentials),
@@ -39,9 +39,9 @@ export const options: NextAuthOptions = {
     signIn: "/signin",
   },
 
-  callbacks: {
-    async redirect() {
-      return "/";
-    },
-  },
+  // callbacks: {
+  //   async redirect() {
+  //     return "/";
+  //   },
+  // },
 };

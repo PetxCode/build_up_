@@ -19,6 +19,12 @@ export interface iProduct {
 
 export interface iProductData extends iProduct, Document {}
 
+export interface iTask {
+  title: string;
+}
+
+export interface iTaskData extends iTask, Document {}
+
 export interface iButton
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof newButtonVar> {
