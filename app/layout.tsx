@@ -6,6 +6,7 @@ import MainProvider from "./components/MainProvider";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MainProvider>
+          <Header />
           <div className="text-blue-950">{children}</div>
         </MainProvider>
       </body>

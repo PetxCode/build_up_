@@ -23,7 +23,11 @@ const page = async () => {
     },
   });
 
-  const data = await res.json();
+  console.log(`reading: ${APP_URL}/api/product`);
+
+  const data: any = await res.json();
+
+  // const data: any = [];
 
   revalidateTag("product");
   return (
