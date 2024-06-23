@@ -17,7 +17,7 @@ export const options: NextAuthOptions = {
       },
       async authorize(credentials) {
         const res = await fetch(
-          `https://build-f7unp0ag5-petxcodes-projects.vercel.app/api/user/signin`,
+          `https://build-up-ashy.vercel.app/api/user/signin`,
           {
             method: "POST",
             body: JSON.stringify(credentials),
@@ -27,7 +27,12 @@ export const options: NextAuthOptions = {
         const user = await res.json();
         console.log(user);
         if (user) {
-          return { ...user, name: user.data.name, email: user.data.email };
+          return {
+            ...user,
+            name: user.data.name,
+            email: user.data.email,
+            role: user.data.role,
+          };
         }
 
         return null;
@@ -39,9 +44,17 @@ export const options: NextAuthOptions = {
     signIn: "/signin",
   },
 
-  // callbacks: {
-  //   async redirect() {
-  //     return "/";
-  //   },
-  // },
+  callbacks: {
+    async redirect() {
+      return "/";
+    },
+    async jwt({ token, user }: any) {
+      if (user) token.role = user.role;
+      return token;
+    },
+    async session({ token, session }: any) {
+      if (session) session.user.role = token.role;
+      return session;
+    },
+  },
 };

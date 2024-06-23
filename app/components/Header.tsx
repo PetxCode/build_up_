@@ -8,7 +8,11 @@ import { MdCreate, MdPerson, MdTaskAlt } from "react-icons/md";
 const Header = () => {
   const session = useSession();
 
-  console.log(session.data?.user);
+  let user: undefined | {} = undefined;
+  user = session.data?.user;
+
+  console.log(user);
+
   const main = [
     {
       id: 1,
@@ -45,14 +49,7 @@ const Header = () => {
             </Link>
           ))}
         </div>
-        {session !== undefined ? (
-          <Link
-            href="/signin"
-            className="flex gap-2 items-center border rounded-md px-4 py-2 cursor-pointer"
-          >
-            Log In
-          </Link>
-        ) : (
+        {user ? (
           <div
             className="flex gap-2 items-center border rounded-md px-4 py-2 cursor-pointer"
             onClick={() => {
@@ -61,6 +58,13 @@ const Header = () => {
           >
             Log Out
           </div>
+        ) : (
+          <Link
+            href="/signin"
+            className="flex gap-2 items-center border rounded-md px-4 py-2 cursor-pointer"
+          >
+            Log In
+          </Link>
         )}
       </div>
     </div>
